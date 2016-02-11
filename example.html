@@ -1,0 +1,29 @@
+<head>
+    <!-- jQuery -->
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+
+    <!-- jQuery-Wikibox -->
+    <script type='text/javascript' src='/js/jquery-wikibox.js'></script>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/jquery-wikibox.css" />
+    <script type="text/javascript">
+      $(document).ready(function(){
+      $('.wikibox').wikibox(); 
+      });
+    </script>
+</head>
+<body>
+    <p>
+        This is a test for <span class="wikibox" rel="html">HTML</span> as a span.<br>
+    </p>
+    <p>
+        This a test for <a href="#" class="wikibox" rel="jQuery">jQuery</a> in a link format.<br>
+    </p>
+    <br>
+    <h1>More words...</h1>
+    <ul>
+        <li><span class="wikibox" rel="linux">Linux</span></li>
+        <li><span class="wikibox" rel="Computer science">Computer Science</span></li>
+        <li><span class="wikibox" rel=".example">.example</span></li>
+        <li><span class="wikibox" rel="central processing unit">CPU</span></li>
+    </ul>
+</body>
