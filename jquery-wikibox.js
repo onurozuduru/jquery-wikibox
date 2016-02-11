@@ -1,12 +1,24 @@
-/*
- * jQuery wikipedia-tooltip plugin version 0.1
+/*******************************************************************************
+ * Author-2016: Onur Ozuduru
+ *   e-mail: onur.ozuduru { at } gmail.com
+ *   github: github.com/onurozuduru
+ *   twitter: twitter.com/OnurOzuduru
  *
- * http://finndorby.com/
+ * Author-2012: Finn Dorby
+ *   website: http://finndorby.com/
+ *   github: github.com/fido-hh
+ *
+ * jQuery-Wikibox
+ * Copyright (c) 2016 by Onur Ozuduru <onur.ozuduru { at } gmail.com>
+ *
+ * jQuery wikipedia-tooltip plugin version 0.1
  * Copyright (c) 2012 finn dorby
+ *
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
- */
+ ******************************************************************************/
+ 
 (function($) {
     $.fn.wikibox = function(settings) {
 		// Settings to configure the jQuery lightBox plugin how you like
