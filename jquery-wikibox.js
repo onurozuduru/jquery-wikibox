@@ -8,58 +8,56 @@
  * http://www.gnu.org/licenses/gpl.html
  */
 (function($) {
-	$.fn.wiki_tooltip = function(settings) {
+    $.fn.wikibox = function(settings) {
 		// Settings to configure the jQuery lightBox plugin how you like
 		settings = jQuery.extend({
 		wiki_lang : 'en',
-		in_delay : 0,
-		out_delay : 3000,
-		in_speed : 500,
-		out_speed : 500
+		delay : 0,
+		in_speed : 200,
+		out_speed : 200
 		},settings);
-	 var tooltip = $('<div id="wiki_container"></div>');
-    $('body').append(tooltip);
-	$(".wikihover").hover(function(m){
-	$("#wiki_container").html("");							   
-	$("#wiki_container").css('display','none');	
-	$("#wiki_container").css('opacity','1');	
-			var _t = m.pageY + 10;
+        var tooltip = $('<div id="wikibox_container"></div>');
+        $('body').append(tooltip);
+        $(".wikibox").click(function(m){
+            $("#wikibox_container").html("");							   
+            $("#wikibox_container").css('display','none');	
+            $("#wikibox_container").css('opacity','1');	
+	        var _t = m.pageY + 10;
         	var _l = m.pageX + 10;
         	tooltip.css({ 'top':_t, 'left':_l }); 
-      title = $(this).attr('rel');
-	  title = title.replace(' ','_');
-	  	var x;
-		if(x) {x = null; x.abort(); }
-	     x = $.ajax({
-        url: 'http://'+settings.wiki_lang+'.wikipedia.org/w/api.php',
-        data: {
-          	action:'parse',
-		    prop:'text',
-          	page:title,
-          	format:'json'
-        },
-        dataType:'jsonp',
-        success: function(data) {
-          //wikipage = $("<div>"+data.parse.text['*']+"<div>").children('p:first');
-		  wikipage = $("<div>"+data.parse.text['*']+"<div>").children('p:lt(1)');
-          wikipage.find('sup').remove();
-          wikipage.find('a').each(function() {
-            $(this)
-              .attr('href', 'http://'+settings.wiki_lang+'.wikipedia.org'+$(this).attr('href'))
-              .attr('target','wikipedia');
-          });
-          $("#wiki_container").html(wikipage);
-          $("#wiki_container").append("<a href='http://"+settings.wiki_lang+".wikipedia.org/wiki/"+title+"' target='wikipedia'>Mehr auf Wikipedia</a>");
-		  	$("#wiki_container").stop(true, true).delay(settings.in_delay).fadeIn(settings.in_speed);
-		  
-        }
-      });
-    },
-	function(){
-		$("#wiki_container").clearQueue();
-  		$("#wiki_container").stop();
-		$("#wiki_container").delay(settings.out_delay).fadeOut(settings.out_speed);
-		
-		});
-	}
+            title = $(this).attr('rel');
+            title = title.replace(' ','_');
+          	var x;
+	        if(x) {x = null; x.abort(); }
+            x = $.ajax({
+                url: 'http://'+settings.wiki_lang+'.wikipedia.org/w/api.php',
+                data: {
+                    action:'query',
+                    prop:'extracts',
+                    format:'json',
+                    exintro:'',
+                    exsectionformat:'plain',
+                    titles:title
+                },
+                dataType:'jsonp',
+                success: function(data) {
+                    for (var firstEl in data['query']['pages']) break;
+                    page = data['query']['pages'][firstEl];
+                    wikititle = page['title'];
+                    wikipage = page['extract'];
+                    wikiheader = "<div id='wikibox_header'><table style='width: 100%;'><tr><td><b>"+wikititle+"</b></td><td id='wikibox_close'>close &#10006;</td></tr></table></div>"
+                    $("#wikibox_container").html(wikiheader);
+                    $("#wikibox_container").append(wikipage);
+                    $("#wikibox_container").append("<a href='http://"+settings.wiki_lang+".wikipedia.org/?curid="+page['pageid']+"' target='wikipedia'>Read more on Wikipedia</a>");
+                    $("#wikibox_container").stop(true, true).delay(settings.delay).fadeIn(settings.in_speed);
+		          
+                    $("#wikibox_close").click(function() {
+                        $("#wikibox_container").clearQueue();
+                        $("#wikibox_container").stop();
+                        $("#wikibox_container").delay(settings.delay).fadeOut(settings.out_speed);
+                    });
+                }
+            });
+        });
+    }
 })(jQuery);
