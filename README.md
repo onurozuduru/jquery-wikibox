@@ -15,8 +15,25 @@ and I have done following changes:
 
 **Note:** jQuery is needed to use it.
 
-## Notes from Old Version's Readme
-----------------------------------
+### Screenshots
+
+![Screenshot0.png](https://github.com/onurozuduru/jquery-wikibox/blob/master/screenshots/Screenshot0.png)
+![Screenshot1.png](https://github.com/onurozuduru/jquery-wikibox/blob/master/screenshots/Screenshot1.png)
+![Screenshot2.png](https://github.com/onurozuduru/jquery-wikibox/blob/master/screenshots/Screenshot2.png)
+
+## Legal
+
+**Important:** I tested it on desktop with Firefox and Chrome, it seems fine but as a legal notice: 
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Notes from Readme of the Old Version
+------------------------------------
 
 jQuery plugin: Wikipedia-tooltip
 Current version: 0.1
