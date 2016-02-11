@@ -1,7 +1,19 @@
 jQuery-Wikibox
 ==============
 
-Forked from [here](https://github.com/fido-hh/jquery-wikipedia-tooltip).
+It is a tool that shows a short explanation of a term from Wikipedia in a tooltip box,
+when user click on the text.
+
+I forked from [here](https://github.com/fido-hh/jquery-wikipedia-tooltip),
+and I have done following changes:
+
+* replaced hover with click
+* changed wikipedia API usage
+* changed its style
+* added title on top of the box
+* added close button
+
+**Note:** jQuery is needed to use it.
 
 ## Notes from Old Version's Readme
 ----------------------------------
