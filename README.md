@@ -4,6 +4,8 @@ jQuery-Wikibox
 It is a tool that shows a short explanation of a term from Wikipedia in a tooltip box,
 when user click on the text.
 
+**EDIT:** [I wrote a blog post about it.](http://ozuduru.com/2016/02/15/tool-for-getting-wikipedia-info-in-tooltip-style/)
+
 I forked from [here](https://github.com/fido-hh/jquery-wikipedia-tooltip),
 and I have done following changes:
 
